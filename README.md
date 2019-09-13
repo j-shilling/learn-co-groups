@@ -1,5 +1,5 @@
-- [User Stories](#orgd3051bb)
-- [Grouping Algorithm](#orgaf32d59)
+- [User Stories](#orgd5a8e46)
+- [Grouping Algorithm](#org351b71a)
 
 I've recently moved over to the online structure program to teach a cohort of part time students. These students seem to have a unique difficulty when it comes to finding opportunities to pair with others in their cohort: as part time students there's no expectations for them to quit their jobs, abandon their kids, and be available all day, the way the full timers do.
 
@@ -10,7 +10,7 @@ So I'm going to start working on an web API to help automate this process. Ideal
 ![img](meme.jpg "DANK MEME AYY LMOA")
 
 
-<a id="orgd3051bb"></a>
+<a id="orgd5a8e46"></a>
 
 # User Stories
 
@@ -36,7 +36,7 @@ A user should be able to:
         -   Re-calculated for each user session
         -   Not-user editable
         -   Pulled from the [Learn-co API](http://api.learn.co/)
--   Generate a group of students: see [Grouping Algorithm](#orgaf32d59)
+-   Generate a group of students: see [Grouping Algorithm](#org351b71a)
     -   Configure group generations with the following options:
         -   Approximate number of students for each group
         -   Whether to automatically start a slack group with each group member
@@ -53,7 +53,7 @@ A user should be able to:
     -   org (Maybe auto commit to a batch repo, so the main README.org can use #+INCLUDE <PATH<sub>TO</sub><sub>SOME</sub><sub>FILE</sub>>. Simply export to .md and learn homepage is updated)
 
 
-<a id="orgaf32d59"></a>
+<a id="org351b71a"></a>
 
 # Grouping Algorithm
 

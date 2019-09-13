@@ -3,6 +3,8 @@
 #+email: shilling.jake@gmail.com
 #+description: Overview of my web service to generate groups of students in a learn-co batch
 
+#+SEQ_TODO: TODO STARTED(s!) BLOCKED(b@/!) TESTING(!) DONE(!)
+
 I've recently moved over to the online structure program to teach a
 cohort of part time students. These students seem to have a unique
 difficulty when it comes to finding opportunities to pair with others
@@ -103,3 +105,32 @@ A user should be able to:
            priority grouping-property... then the third-highest... etc.
       5. Add "best fit" to G
    3. Store G in a collection of made groups
+
+
+* TODO COMMENT [0/7]
+** TODO Log in with their learn-co account
+** TODO View the batches (s)he is teaching
+** TODO View a table of students within a particular batch. [0/5]
+*** TODO names
+*** TODO slack handles
+*** TODO home city (state, country, or whatever)
+*** TODO time zone (/at least/ the UTC offset)
+*** TODO number of labs completed in current track
+** TODO Generate a group of students: see [[*Grouping Algorithm][Grouping Algorithm]] [0/2]
+*** TODO Configure group generations with the following options: [0/3]
+**** TODO Approximate number of students for each group
+**** TODO Whether to automatically start a slack group with each group member
+**** TODO What properties to group on
+- Set up an order list of properties to group by. For each property,
+  the user can specify whether to maximize or minimize each value, and
+  a hard maximum and minimum allowed value:
+  - Number of times any given pair has worked together before
+  - Difference in lab completion
+  - Difference in UTC offset
+*** TODO Select whether to use these configuration options once or repeat
+** TODO View the details for a given group
+** TODO Export the a group's details to some markup language: [0/3]
+*** TODO HTML
+*** TODO Github Flavored Markdown
+*** TODO org
+** TODO View a list of currently active groups for each batch
