@@ -1,7 +1,0 @@
-
-<% if current_user %>
-<h1>Hello, <%= current_user['first_name'] %>!</h1>
-<% else %>
-<h1>Hello, World!</h1>
-<%= link_to "log in with Learn", '/auth/learn' %>
-<% end %>
