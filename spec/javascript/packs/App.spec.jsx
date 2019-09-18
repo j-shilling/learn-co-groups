@@ -6,6 +6,6 @@ import App from 'packs/App';
 describe('<App />', () => {
     it('renders an App', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper).toBeTruthy();
+        expect(wrapper).not.toBeEmptyRender();
     });
 });

@@ -22,6 +22,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",
+    "jest-enzyme": "^7.1.1",
     "webpack-dev-server": "^3.8.1"
   },
   "jest": {
@@ -33,7 +34,8 @@
       "app/javascript"
     ],
     "setupFilesAfterEnv": [
-      "./spec/javascript/setupTests.js"
+      "./spec/javascript/setupTests.js",
+      "./node_modules/jest-enzyme/lib/index.js"
     ]
   }
 }
