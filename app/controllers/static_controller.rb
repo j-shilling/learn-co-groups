@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class StaticController < ApplicationController
+  include Authenticator
+
   def index
-    if current_user
-      render :index
-    else
+    if !logged_in?
       redirect_to login_path
     end
   end
 
   def login
-    if current_user
+    if logged_in?
       redirect_to root_path
     else
       render :login
