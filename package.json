@@ -1,6 +1,9 @@
 {
   "name": "learn_co_groups",
-  "private": true,
+    "private": true,
+    "scripts": {
+	"test": "jest"
+    },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
     "@rails/actioncable": "^6.0.0-alpha",
@@ -15,6 +18,17 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
     "webpack-dev-server": "^3.8.1"
-  }
+  },
+    "jest": {
+	"roots": [
+	    "spec/javascript"
+	],
+	"moduleDirectories": [
+	    "node_modules",
+	    "app/javascript"
+	]
+    }
 }
