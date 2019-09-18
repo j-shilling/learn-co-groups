@@ -1,5 +1,11 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+
 import App from 'packs/App';
 
-test('tests should be working', () => {
-    expect(true).toBe(true);
+describe('<App />', () => {
+    it('renders an App', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper).toBeTruthy();
+    });
 });
