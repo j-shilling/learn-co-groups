@@ -107,7 +107,7 @@ A user should be able to:
    3. Store G in a collection of made groups
 
 
-* TODO COMMENT [3/11]
+* TODO COMMENT [4/11]
 ** DONE Log in with their learn-co account
 CLOSED: [2019-09-13 Fri 16:47]
 - State "DONE"       from "STARTED"    [2019-09-13 Fri 16:47]
@@ -120,9 +120,12 @@ CLOSED: [2019-09-17 Tue 15:33]
 CLOSED: [2019-09-18 Wed 13:44]
 - State "DONE"       from "STARTED"    [2019-09-18 Wed 13:44]
 - State "STARTED"    from "TODO"       [2019-09-18 Wed 10:17]
-** STARTED Setup jest+enzyme
+** DONE Setup jest+enzyme
+CLOSED: [2019-09-18 Wed 15:25]
+- State "DONE"       from "STARTED"    [2019-09-18 Wed 15:25]
 - State "STARTED"    from "TODO"       [2019-09-18 Wed 13:44]
-** TODO Write login page
+** STARTED Write login page
+- State "STARTED"    from "TODO"       [2019-09-18 Wed 15:27]
 ** TODO View the batches (s)he is teaching
 ** TODO View a table of students within a particular batch. [0/5]
 *** TODO names
