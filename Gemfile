@@ -40,6 +40,10 @@ gem 'omniauth'
 gem 'omniauth-learn'
 gem 'omniauth-oauth2'
 
+# Use bootstrap for CSS
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+
 group :development, :test do
   # Gems to handling TDD
   gem 'database_cleaner'
