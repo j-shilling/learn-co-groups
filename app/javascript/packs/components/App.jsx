@@ -1,5 +1,7 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
-const App = props => <div><h1>REACT APP LOADED</h1></div>;
+const App = props => <Button>Click Here</Button>;
 
 export default App;
+
