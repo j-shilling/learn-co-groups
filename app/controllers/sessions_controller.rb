@@ -7,4 +7,8 @@ class SessionsController < ApplicationController
     session[:current_user] = request.env['omniauth.auth']['info']
     redirect_to root_path
   end
+
+  def current_user
+    render json: session[:current_user]
+   end
 end
