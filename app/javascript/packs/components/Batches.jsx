@@ -18,7 +18,12 @@ const Batches = () => {
     // Update value of textbox
     setValue(value);
     // Filter for potential matches and limit to 5 results
-    setResults(batches.filter(batch => batch.iteration.includes(value)).slice(0, 5));
+    setResults(batches.filter(batch => batch.iteration.includes(value))
+      .slice(0, 5)
+      .map(batch => {
+        // The <Search /> component expects a title to correctly render
+        return { ...batch, title: batch.iteration };
+      }));
 
     setLoading(false);
   };
@@ -27,7 +32,13 @@ const Batches = () => {
       goToBatch(selectedBatch);
     }
   };
-  const resultRenderer = ({ iteration }) => <Label content={iteration} />;
+  const resultRenderer = ({ iteration }) => {
+    return (
+      <Search.Result title={iteration}>
+        <Label content={iteration} />
+      </Search.Result>
+    );
+  };
   const goToBatch = batch => {
     if (batch) {
       console.log(`Go to batch '${batch.iteration}'`);
@@ -76,7 +87,6 @@ const Batches = () => {
         onKeyPress={handleKeyPress}
         results={results}
         value={value}
-        resultRenderer={resultRenderer}
       />
       {selectedBatchRenderer()}
     </div>
