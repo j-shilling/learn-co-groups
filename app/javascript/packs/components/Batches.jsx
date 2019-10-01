@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Label } from 'semantic-ui-react';
 
-const Batches = ({ user }) => {
+const Batches = () => {
   const [isLoading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [value, setValue] = useState('');
@@ -12,17 +12,26 @@ const Batches = ({ user }) => {
     setLoading(true);
 
     setValue(value);
-    setResults(batches.filter(batch => batch.iteration.includes(value)));
+    setResults(batches.filter(batch => batch.iteration.includes(value)).slice(0, 5));
 
     setLoading(false);
   };
   const resultRenderer = ({ iteration }) => <Label content={iteration} />;
 
-  const getBatchesPage = page => {
-    fetch('/batches').then(res => res.json()).then(console.log);
-  };
+  useEffect(() => {
+    const getBatchesPage = page => {
+      fetch(`/api/batches?page=${page}`)
+        .then(resp => resp.json())
+        .then(data => {
+          setBatches(batches => [...batches, ...data.batches]);
+          if (data.meta.current_page < data.meta.total_pages) {
+            getBatchesPage(page + 1);
+          }
+        });
+    };
 
-  useEffect(() => getBatchesPage(1));
+    getBatchesPage(1);
+  }, []);
 
   return (
     <Search
