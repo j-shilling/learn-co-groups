@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import Batches from './Batches';
+import Batch from './Batch';
 
 const NoMatch = () => <h1>Route Not Found!!</h1>;
 
@@ -32,6 +33,9 @@ const App = () => {
           <Switch>
             <Route exact path='/batches'>
               <Batches />
+            </Route>
+            <Route path='/batch/:id'>
+              <Batch />
             </Route>
             <Route exact path='/'>
               <Redirect to='/batches' />
