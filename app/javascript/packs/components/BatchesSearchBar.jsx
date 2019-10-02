@@ -52,18 +52,31 @@ const BatchesSearchBar = ({ onBatchSelected }) => {
 
   // Get a list of all the batches page by page.
   useEffect(() => {
-    const getBatchesPage = page => {
-      fetch(`/api/batches?page=${page}`)
-        .then(resp => resp.json())
-        .then(data => {
+    const axios = require('axios');
+    const source = axios.CancelToken.source();
+
+    const getBatchesPage = (page = 1) => {
+      axios.get('/api/batches', {
+        params: {
+          page: page
+        },
+        cancelToken: source.token
+      })
+        .then(({ data }) => {
           setBatches(batches => [...batches, ...data.batches]);
           if (data.meta.current_page < data.meta.total_pages) {
             getBatchesPage(page + 1);
           }
+        }).catch((thrown) => {
+          console.log(thrown.message);
         });
     };
 
-    getBatchesPage(1);
+    getBatchesPage();
+
+    return () => {
+      source.cancel('Operation canceled by the user.');
+    };
   }, []);
 
   return (
