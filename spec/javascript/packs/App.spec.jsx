@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import App from 'packs/components/App';
+import App from 'packs/containers/App';
 
 describe('<App />', () => {
-    it('renders an App', () => {
-        const wrapper = shallow(<App />);
-        expect(wrapper).not.toBeEmptyRender();
-    });
+  it('renders an App', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).not.toBeEmptyRender();
+  });
 });
