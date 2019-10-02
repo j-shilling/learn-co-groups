@@ -31,7 +31,7 @@ const App = () => {
         <div>
           <Switch>
             <Route exact path='/batches'>
-              <Batches user={currentUser} />
+              <Batches />
             </Route>
             <Route exact path='/'>
               <Redirect to='/batches' />

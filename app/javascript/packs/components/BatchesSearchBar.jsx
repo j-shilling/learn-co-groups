@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Label, List } from 'semantic-ui-react';
+import { Search } from 'semantic-ui-react';
 
-const Batches = () => {
+/**
+ * Allows the user to search from a list of all existing batches. When
+ * a particular batch is chosen it passes the batch to
+ * onBatchSelected.
+ */
+const BatchesSearchBar = ({ onBatchSelected }) => {
+  // Indicates whether we are filtering through the results
   const [isLoading, setLoading] = useState(false);
+  // Array of possible choices for the user
   const [results, setResults] = useState([]);
+  // Current value of the textbox
   const [value, setValue] = useState('');
+  // Array of all batches
   const [batches, setBatches] = useState([]);
-  const [selectedBatch, setSelectedBatch] = useState(null);
 
+  // If the user selects from the autocomplete options, set this
+  // components value.
   const handleResultSelect = (e, { result }) => {
-    setSelectedBatch(result);
+    onBatchSelected(result);
     setValue(result.iteration);
   };
+  // When the user types a new character, update the value and results
+  // list.
   const handleSearchChange = (e, { value }) => {
     setLoading(true);
 
@@ -27,42 +39,18 @@ const Batches = () => {
 
     setLoading(false);
   };
+  // If the user presses enter while the search box has focus, check
+  // to see if they have typed the full name of a batch.
   const handleKeyPress = e => {
     if (e.key === 'Enter') {
-      goToBatch(selectedBatch);
-    }
-  };
-  const resultRenderer = ({ iteration }) => {
-    return (
-      <Search.Result title={iteration}>
-        <Label content={iteration} />
-      </Search.Result>
-    );
-  };
-  const goToBatch = batch => {
-    if (batch) {
-      console.log(`Go to batch '${batch.iteration}'`);
+      const selection = batches.find(batch => batch.iteration === value);
+      if (selection) {
+        onBatchSelected(selection);
+      }
     }
   };
 
-  const selectedBatchRenderer = () => {
-    if (selectedBatch) {
-      return (
-        <List selection verticalAlign='middle'>
-          <List.Item>
-            <List.Content verticalAlign='middle'>
-              <List.Header onClick={() => goToBatch(selectedBatch)}>
-                {selectedBatch.iteration}
-              </List.Header>
-            </List.Content>
-          </List.Item>
-        </List>
-      );
-    } else {
-      return null;
-    }
-  };
-
+  // Get a list of all the batches page by page.
   useEffect(() => {
     const getBatchesPage = page => {
       fetch(`/api/batches?page=${page}`)
@@ -79,18 +67,15 @@ const Batches = () => {
   }, []);
 
   return (
-    <div>
-      <Search
-        loading={isLoading}
-        onResultSelect={handleResultSelect}
-        onSearchChange={handleSearchChange}
-        onKeyPress={handleKeyPress}
-        results={results}
-        value={value}
-      />
-      {selectedBatchRenderer()}
-    </div>
+    <Search
+      loading={isLoading}
+      onResultSelect={handleResultSelect}
+      onSearchChange={handleSearchChange}
+      onKeyPress={handleKeyPress}
+      results={results}
+      value={value}
+    />
   );
 };
 
-export default Batches;
+export default BatchesSearchBar;
