@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Search } from 'semantic-ui-react';
 
+import API from '../api';
+
 /**
  * Allows the user to search from a list of all existing batches. When
  * a particular batch is chosen it passes the batch to
@@ -52,16 +54,8 @@ const BatchesSearchBar = ({ onBatchSelected }) => {
 
   // Get a list of all the batches page by page.
   useEffect(() => {
-    const axios = require('axios');
-    const source = axios.CancelToken.source();
-
     const getBatchesPage = (page = 1) => {
-      axios.get('/api/batches', {
-        params: {
-          page: page
-        },
-        cancelToken: source.token
-      })
+      API.getBatchesPage(page)
         .then(({ data }) => {
           setBatches(batches => [...batches, ...data.batches]);
           if (data.meta.current_page < data.meta.total_pages) {
@@ -75,7 +69,7 @@ const BatchesSearchBar = ({ onBatchSelected }) => {
     getBatchesPage();
 
     return () => {
-      source.cancel('Operation canceled by the user.');
+      API.cancelGetBatchesPage();
     };
   }, []);
 
