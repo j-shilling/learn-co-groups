@@ -54,23 +54,9 @@ const BatchesSearchBar = ({ onBatchSelected }) => {
 
   // Get a list of all the batches page by page.
   useEffect(() => {
-    const getBatchesPage = (page = 1) => {
-      API.getBatchesPage(page)
-        .then(({ data }) => {
-          setBatches(batches => [...batches, ...data.batches]);
-          if (data.meta.current_page < data.meta.total_pages) {
-            getBatchesPage(page + 1);
-          }
-        }).catch((thrown) => {
-          console.log(thrown.message);
-        });
-    };
-
-    getBatchesPage();
-
-    return () => {
-      API.cancelGetBatchesPage();
-    };
+    return API.forEachBatchesPage(new_batches => {
+      setBatches(batches => [...batches, ...new_batches]);
+    });
   }, []);
 
   return (
