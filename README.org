@@ -135,7 +135,9 @@ CLOSED: [2019-09-20 Fri 09:27]
 ** DONE Search through all batches and select a specific one
 CLOSED: [2019-10-03 Thu 10:50]
 - State "DONE"       from "TODO"       [2019-10-03 Thu 10:50]
-** TODO View a table of students within a particular batch. [0/5]
+** STARTED View a table of students within a particular batch. [0/6]
+- State "STARTED"    from "TODO"       [2019-10-03 Thu 10:52]
+*** TODO table is editable only to admin accounts
 *** TODO names
 *** TODO slack handles
 *** TODO home city (state, country, or whatever)
