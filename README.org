@@ -29,7 +29,7 @@ of completed labs doesn't deviate by more than a configurable amount,
 whose time zone is not more than an hour apart, and who have been
 groups before the fewest number of times.
 
-#+caption: DANK MEME AYY LMOA
+#+caption: DANK MEME AYY LMAO
 [[file:meme.jpg]]
 
 * User Stories
@@ -107,7 +107,7 @@ A user should be able to:
    3. Store G in a collection of made groups
 
 
-* TODO COMMENT [5/11]
+* TODO COMMENT [6/12]
 ** DONE Log in with their learn-co account
 CLOSED: [2019-09-13 Fri 16:47]
 - State "DONE"       from "STARTED"    [2019-09-13 Fri 16:47]
@@ -128,8 +128,13 @@ CLOSED: [2019-09-18 Wed 15:25]
 CLOSED: [2019-09-20 Fri 09:27]
 - State "DONE"       from "STARTED"    [2019-09-20 Fri 09:27]
 - State "STARTED"    from "TODO"       [2019-09-18 Wed 15:27]
-** STARTED View the batches (s)he is teaching
+** BLOCKED View the batches (s)he is teaching
+- State "BLOCKED"    from "STARTED"    [2019-10-03 Thu 10:49] \\
+  The learn api doesn't expose an endpoint to get batches of a user
 - State "STARTED"    from "TODO"       [2019-09-20 Fri 09:28]
+** DONE Search through all batches and select a specific one
+CLOSED: [2019-10-03 Thu 10:50]
+- State "DONE"       from "TODO"       [2019-10-03 Thu 10:50]
 ** TODO View a table of students within a particular batch. [0/5]
 *** TODO names
 *** TODO slack handles
