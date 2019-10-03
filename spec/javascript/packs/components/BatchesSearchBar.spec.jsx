@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
 import API from 'packs/api';
 import BatchesSearchBar from 'packs/components/BatchesSearchBar';
@@ -101,7 +101,7 @@ describe('<BatchesSearchBar />', () => {
 
   it('completes value when a suggestion is selected', () => {
     const batch = clickSearchResult(wrapper);
-
+    p
     expect(wrapper.find('input').prop('value')).toBe(batch.iteration);
   });
 
