@@ -33,7 +33,7 @@ class LearnApi
                          params: params)
     rescue RestClient::ExceptionWithResponse => e
       # Request resulted in an error
-      Rails.logger.warning(e.response.to_s)
+      Rails.logger.warn(e.response.to_s)
       return nil
     end
 
