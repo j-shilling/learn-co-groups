@@ -101,7 +101,6 @@ describe('<BatchesSearchBar />', () => {
 
   it('completes value when a suggestion is selected', () => {
     const batch = clickSearchResult(wrapper);
-    p
     expect(wrapper.find('input').prop('value')).toBe(batch.iteration);
   });
 
