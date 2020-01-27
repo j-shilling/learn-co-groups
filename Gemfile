@@ -80,3 +80,7 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem "pry", "~> 0.12.2", :groups => [:development, :test]
+
+gem "faker", "~> 2.10", :group => :test
+
+gem "shoulda-matchers", "~> 4.2", :group => :test
