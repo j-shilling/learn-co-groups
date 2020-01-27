@@ -107,7 +107,7 @@ A user should be able to:
    3. Store G in a collection of made groups
 
 
-* TODO COMMENT [6/12]
+* TODO COMMENT [5/12]
 ** DONE Log in with their learn-co account
 CLOSED: [2019-09-13 Fri 16:47]
 - State "DONE"       from "STARTED"    [2019-09-13 Fri 16:47]
@@ -132,11 +132,14 @@ CLOSED: [2019-09-20 Fri 09:27]
 - State "BLOCKED"    from "STARTED"    [2019-10-03 Thu 10:49] \\
   The learn api doesn't expose an endpoint to get batches of a user
 - State "STARTED"    from "TODO"       [2019-09-20 Fri 09:28]
-** DONE Search through all batches and select a specific one
+** STARTED Batch Resource
+- State "STARTED"    from "TODO"       [2020-01-27 Mon 12:21]
+*** DONE Search through all batches and select a specific one
 CLOSED: [2019-10-03 Thu 10:50]
 - State "DONE"       from "TODO"       [2019-10-03 Thu 10:50]
-** STARTED View a table of students within a particular batch. [0/6]
-- State "STARTED"    from "TODO"       [2019-10-03 Thu 10:52]
+*** TODO User can edit their list of batches
+*** TODO User can view all their batches
+** TODO View a table of students within a particular batch. [0/6]
 *** TODO table is editable only to admin accounts
 *** TODO names
 *** TODO slack handles
