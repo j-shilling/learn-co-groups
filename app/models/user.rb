@@ -6,6 +6,8 @@ class User < ApplicationRecord
   attribute :last_name, :string
   attribute :token, :string
 
+  validates :admin, :first_name, :last_name, :token, presence: true
+
   def to_s
     "#{first_name} #{last_name}"
   end
@@ -24,10 +26,10 @@ class User < ApplicationRecord
     unless user
       user = User.new
       user.id = args[:id]
-      user.save
     end
 
     user.learn_co_attributes = args
+    user.save
     user
   end
 end
