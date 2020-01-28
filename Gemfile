@@ -84,3 +84,5 @@ gem "pry", "~> 0.12.2", :groups => [:development, :test]
 gem "faker", "~> 2.10", :group => :test
 
 gem "shoulda-matchers", "~> 4.2", :group => :test
+
+gem "factory_bot_rails", "~> 5.1", :groups => [:development, :test]
