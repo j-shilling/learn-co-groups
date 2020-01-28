@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_27_203334) do
+ActiveRecord::Schema.define(version: 2020_01_28_160201) do
+
+  create_table "batch_users", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "batch_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["batch_id"], name: "index_batch_users_on_batch_id"
+    t.index ["user_id"], name: "index_batch_users_on_user_id"
+  end
 
   create_table "batches", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -22,4 +31,6 @@ ActiveRecord::Schema.define(version: 2020_01_27_203334) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "batch_users", "batches"
+  add_foreign_key "batch_users", "users"
 end

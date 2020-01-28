@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validation' do
-    it { should validate_presence_of(:admin) }
+    it { should_not validate_presence_of(:admin) }
     it { should validate_presence_of(:first_name) }
     it { should validate_presence_of(:last_name) }
     it { should validate_presence_of(:token) }
@@ -33,8 +33,6 @@ RSpec.describe User, type: :model do
     end
 
     describe 'side effects' do
-      User.destroy_all
-
       it 'creates a new DB entry when given a new id' do
         expect do
           User.from_omniauth_params(learn_co_user)
