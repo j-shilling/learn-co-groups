@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'association' do
-    it { should have_many(:batches) }
+    it { should have_many(:batches).through(:batch_users) }
   end
 
   describe '.from_omniauth_params' do
